@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Operations</title>
+</head>
+<body>
+    <h1>Math Operations</h1>
+
+    <p>Factorial of 5: <span id="factorialResult"></span></p>
+    <p>Square of 4: <span id="squareResult"></span></p>
+    <p>Addition of 5 and 3: <span id="additionResult"></span></p>
+    <p>Subtraction of 5 from 3: <span id="subtractionResult"></span></p>
+    <p>Multiplication of 5 and 3: <span id="multiplicationResult"></span></p>
+    <p>Division of 6 by 2: <span id="divisionResult"></span></p>
+    <p>Division of 6 by 0: <span id="divisionByZeroResult"></span></p>
+    <p>Invalid operation: <span id="invalidOperationResult"></span></p>
+
+    <script>
+       
+        function factorial(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            } else {
+                return n * factorial(n - 1);
+            }
+        }
+
+  
+        function square(x) {
+            return x * x;
+        }
+
+
+        function arithmeticOperation(a, b, operator) {
+            switch (operator) {
+                case '+':
+                    return a + b;
+                case '-':
+                    return a - b;
+                case '*':
+                    return a * b;
+                case '/':
+                    if (b !== 0) {
+                        return a / b;
+                    } else {
+                        return "Cannot divide by zero";
+                    }
+                default:
+                    return "Invalid operator";
+            }
+        }
+
+        document.getElementById('factorialResult').textContent = factorial(5);
+        document.getElementById('squareResult').textContent = square(4);
+        document.getElementById('additionResult').textContent = arithmeticOperation(5, 3, '+');
+        document.getElementById('subtractionResult').textContent = arithmeticOperation(5, 3, '-');
+        document.getElementById('multiplicationResult').textContent = arithmeticOperation(5, 3, '*');
+        document.getElementById('divisionResult').textContent = arithmeticOperation(6, 2, '/');
+        document.getElementById('divisionByZeroResult').textContent = arithmeticOperation(6, 0, '/');
+        document.getElementById('invalidOperationResult').textContent = arithmeticOperation(6, 2, '%'); 
+    </script>
+</body>
+</html>

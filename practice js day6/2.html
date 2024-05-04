@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter</title>
+</head>
+<body>
+
+<button onclick="incrementCounter()">Increment Counter</button>
+<p id="counterValue"></p>
+
+<script>
+    const createCounter = () => {
+        let count = 0; 
+        
+        return function() {
+            count++;
+            return count;
+        };
+    };
+
+    const counter = createCounter();
+
+    function incrementCounter() {
+        const counterValue = counter();
+        document.getElementById('counterValue').textContent = 'Counter: ' + counterValue;
+    }
+</script>
+
+</body>
+</html>
